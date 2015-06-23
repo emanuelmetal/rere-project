@@ -1,0 +1,13 @@
+/*
+Theme Name: RegardingRealEstate.com
+*/
+
+/* main elements */
+.caption span a:hover,
+.caption span a{
+    color: #FFFFFF;
+    text-decoration:none;
+}
+.navigation .next{
+    float:right;
+}
