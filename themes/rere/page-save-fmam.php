@@ -1,23 +1,15 @@
-
 <?php /*
 Template Name: saveFMaM
-*/ ?>
-<!-- page-save-fmam.php -->
-<?php 
-global $wpdb;
-$query = "INSERT INTO wp_fmam_posting " . str_replace("\'", "'", htmlentities($_POST["query"]));
-echo '<div class="debug">';
-echo "Query:  "; echo $query; 
-echo "<br/><br/></div>"; 
+*/
 
-//$wpdb->flush();
-$wpdb->show_errors();
-$results = $wpdb->query($query);
-if ($results === false) {
-	print "Error<br/>";
+if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
+
+    die('You didn\'t tell the magic words!!');
 }
 
-$wpdb->print_error();
-print "results: " . $results;
+global $wpdb;
+$query = "INSERT INTO asd wp_fmam_posting " . str_replace("\'", "'", htmlentities($_POST["query"]));
 
-?>  
+$results = $wpdb->query($query);
+
+echo $results;

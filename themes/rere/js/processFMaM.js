@@ -65,12 +65,12 @@ if (queryForm.elements["rlistingtype-forrent"].checked) {
 }
 
 if (queryForm.elements["rlistingtype-forrent"].checked) { 
-    sqlQuery+=" , " + queryForm.elements["rprice-l"].value 
-	sqlQuery+=" , " + queryForm.elements["rprice-h"].value 
-	sqlQuery+=" ,''"  // financing N/A for rentals
+    sqlQuery+=" , " + (queryForm.elements["rprice-l"].value === "" ? "0" : queryForm.elements["rprice-l"].value);
+	sqlQuery+=" , " + (queryForm.elements["rprice-h"].value === "" ? "0" : queryForm.elements["rprice-h"].value);
+	sqlQuery+=" ,''";  // financing N/A for rentals
 } else {
-    sqlQuery+=" , " + queryForm.elements["price-l"].value 
-	sqlQuery+=" , " + queryForm.elements["price-h"].value 
+    sqlQuery+=" , " + (queryForm.elements["price-l"].value === "" ? "0" : queryForm.elements["price-l"].value);
+	sqlQuery+=" , " + (queryForm.elements["price-h"].value === "" ? "0" : queryForm.elements["price-h"].value);
 	// sqlQuery+=" ,'" + queryForm.elements["financing"].value + "'"; // not on the form yet
 	sqlQuery+=" ,''" ; // not on the form yet
 }
@@ -88,11 +88,11 @@ if (queryForm.elements["ownership-condo"].checked) {sqlQuery+=" ,'X'";}else {sql
 sqlQuery+=" , '" + queryForm.elements["partoftown"].value +"'" ; 
 sqlQuery+=" , '" + queryForm.elements["neighborhood"].value +"'" ; 
 
-sqlQuery+=" ," + queryForm.elements["rooms"].value; 
-sqlQuery+=" ,'" + queryForm.elements["condition"].value  +"'" ;
-sqlQuery+=" ," + queryForm.elements["bedrooms"].value;
-sqlQuery+=" ,'" + queryForm.elements["dining"].value   +"'" ;
-sqlQuery+=" ," + queryForm.elements["bathrooms"].value;
+sqlQuery+=" ,'" + queryForm.elements["rooms"].value + "'";
+sqlQuery+=" ,'" + queryForm.elements["condition"].value + "'" ;
+sqlQuery+=" ,'" + queryForm.elements["bedrooms"].value + "'";
+sqlQuery+=" ,'" + queryForm.elements["dining"].value + "'" ;
+sqlQuery+=" ,'" + queryForm.elements["bathrooms"].value + "'";
 sqlQuery+=" ,'" + queryForm.elements["bath_condition"].value + "'"; // Bath_Cond
 sqlQuery+=" ,'" + queryForm.elements["kitchen"].value + "'"; //
 if (queryForm.elements["library"].checked) {sqlQuery+=" ,'X'";}else {sqlQuery+=",''";}
@@ -125,7 +125,7 @@ if (queryForm.elements["washer"].checked) {sqlQuery+=" ,'yes'";}else {sqlQuery+=
 sqlQuery+=" ,'yes'";  // doorman - required at this point
 if (queryForm.elements["concierge"].checked) {sqlQuery+=" ,'yes'";}else {sqlQuery+=" ,'no'";}
 if (queryForm.elements["elevator"].checked) {sqlQuery+=" ,'yes'";}else {sqlQuery+=" ,'no'";}
-if (queryForm.elements["fireplace"].checked) {sqlQuery+=" ,'yes'";}else {sqlQuery+=" ,'no'";}
+if (queryForm.elements["fireplace"].checked) {sqlQuery+=" ,1";}else {sqlQuery+=" ,0";}
 if (queryForm.elements["central_air"].checked) {sqlQuery+=" ,'yes'";}else {sqlQuery+=" ,'no'";} 
 if (queryForm.elements["pool"].checked) {sqlQuery+=" ,'yes'";}else {sqlQuery+=" ,'no'";}
 if (queryForm.elements["exercise"].checked) {sqlQuery+=" ,'yes'";}else {sqlQuery+=" ,'no'";}
@@ -134,19 +134,34 @@ if (queryForm.elements["meetingroom"].checked) {sqlQuery+=" ,'yes'";}else {sqlQu
 if (queryForm.elements["playroom"].checked) {sqlQuery+=" ,'yes'";}else {sqlQuery+=" ,'no'";}
 if (queryForm.elements["storage"].checked) {sqlQuery+=" ,'yes'";}else {sqlQuery+=" ,'no'";}
 
-sqlQuery+=" ,1" // active at the beginning
+sqlQuery+=" ,1"; // active at the beginning
 
 sqlQuery+=" ,'" + queryForm.elements["priorities"].value  +"'" ; ////////////////////
 sqlQuery+=" ,'" + queryForm.elements["top_priority"].value  +"'" ; ////////////////////
 sqlQuery+=" ,'" + queryForm.elements["ammenities"].value  +"'" ; ////////////////////
 sqlQuery+=" ,'" + queryForm.elements["pet_description"].value +"'" ;  ////////////////////
-sqlQuery+=" ," + queryForm.elements["prequal"].value;  ////////////////////
-sqlQuery+=" ," + queryForm.elements["cash_down"].value;  ////////////////////
+sqlQuery+=" ,'" + queryForm.elements["prequal"].value +"'";  ////////////////////
+sqlQuery+=" ,'" + queryForm.elements["cash_down"].value +"'";  ////////////////////
 sqlQuery+=" ,'" + queryForm.elements["email"].value  +"'" ; ////////////////////
 
 sqlQuery+=" )";
 //jQuery("#queryresults").text(sqlQuery);
-jQuery("#queryresults").load("http://re-re.info/savefmam", {query: sqlQuery});
+//jQuery("#queryresults").load("http://rere.local/savefmam", {query: sqlQuery});
+    jQuery.ajax({
+        url: 'http://rere.local/savefmam',
+        type: 'POST',
+        data: {query:sqlQuery},
+        success: function(response){
+            if (response === '1') {
+                jQuery("#queryresults").html('Your request was submitted successfully');
+            } else {
+                jQuery("#queryresults").html('An error occurred');
+            }
+        },
+        error: function(xhr){
+            jQuery("#queryresults").html('An error occurred');
+        }
+    });
 //////
 return(0);
 }
