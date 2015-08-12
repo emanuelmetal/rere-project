@@ -19,8 +19,12 @@ if ($pos>0) {
 <form method="get" class="search" id="searchform" action="<?php bloginfo('url'); ?>" >
 	<fieldset>
 		<div class="area">
-			<textarea rows="2" cols="20" id="page" name="s" /><?php echo $sq; ?></textarea>
+
+			<input id="page" name="s" placeholder="<?php echo $sq; ?>"/><!--
+         -->
 		</div>
-		<input class="submit" type="submit" value="Search" />
+        <div>
+            <input class="submit" type="submit" value="Search" />
+        </div>
 	</fieldset>
 </form>

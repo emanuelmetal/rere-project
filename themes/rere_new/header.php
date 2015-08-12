@@ -1,101 +1,114 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php
-    // Print the <title> tag based on what is being viewed
-    global $page, $paged;
-    wp_title( '|', true, 'right' );
+	<head>
+		<title>eMAn<?php wp_title(' | ', true, 'right'); ?><?php bloginfo('name'); ?></title>
+		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+		<meta name="author" content="Emanuel Pereyra (primary author) emanuel.pereyra77@gmail.com">
+		<link media="all" rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/asll.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/sstyle.css"  />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/js/bootstrap/css/bootstrap.css"  />
+		<?php
+			wp_deregister_script('jquery');
+			wp_register_script('jquery', get_bloginfo('template_url').'/js/jquery-1.6.4.min.js');
+			wp_enqueue_script('jquery'); ?>
+		<?php wp_head(); ?>
+		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.main.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.hoverIntent.minified.js"></script>
+<!--		<script type="text/javascript" src="http://valid.tjp.hu/zoom/tjpzoom.js"></script>-->
+		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/process_mkt_opps.js"></script>
+				<script type="text/javascript" src="<?php bloginfo('template_url'); ?>js/processSearch.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/json2.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jstorage.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.imagemapster.min.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/rere.js"></script>
+<script type="text/javascript">
+var addressQuery;
+function processLocator(){
+	var sqlQuery;
+	queryForm = document.forms[0];
+	var address = queryForm.elements["address"].value;
 
-    // Add the blog name.
-    bloginfo( 'name' );
-
-    // Add the blog description for the home/front page.
-    $site_description = get_bloginfo( 'description', 'display' );
-    if ( $site_description && ( is_home() || is_front_page() ) )
-        echo " | $site_description";
-
-    // Add a page number if necessary:
-    if ( $paged >= 2 || $page >= 2 )
-        echo ' | ' . sprintf( __( 'Page %s', 'wpestate' ), max( $paged, $page ) );
-    ?>
-</title>
-
-
-
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
- 
-<?php 
-$favicon        =   esc_html( get_option('wp_estate_favicon_image','') );
-
-if ( $favicon!='' ){
-    echo '<link rel="shortcut icon" href="'.$favicon.'" type="image/x-icon" />';
-} else {
-    echo '<link rel="shortcut icon" href="'.get_template_directory_uri().'/img/favicon.gif" type="image/x-icon" />';
+	if (address.length == 5) {
+		if (address == "10001" || address == "10003" || address == "10010" || 
+		address == "10011" || address == "10012" || address == "10014" || 
+		address == "10016" || address == "10017" || address == "10019" ||
+		address == "10022" || address == "10023" || address == "100024" ||
+		address == "100025" || address == "10026" || address == "10029" ||
+		address == "10028" || address == "10075" || address == "10021" ||  address == "10065") {						
+			sqlQuery = " AND zipcode = '" + address + "'";
+		} else {
+			alert("Sorry, but our data doesn't include zip code " + address); 
+		}
+	} else {
+		normalizeAddress();
+		sqlQuery = ' AND address_number = ' + houseNumber;
+		sqlQuery += ' AND street_name = ' + "'" + streetName + "'";
+	}
+	sessionStorage.setItem("addressQuery", sqlQuery);
+	window.location.href = "http://re-re.info/query-by-address-results";
 }
 
-wp_head();
-$wide_class      =   '';
-$wide_status     =   esc_html(get_option('wp_estate_wide_status',''));
-if($wide_status==1){
-    $wide_class="wide";
+function runQuery() {
+var sqlQuery = sessionStorage.getItem("addressQuery");
+jQuery("#queryresults").load("http://re-re.info/runquery", {query: sqlQuery});
 }
+</script>
+<meta name="google-site-verification" content="jCsxWr2YSrr5rfd2rAqab5xKoN5-fjiXI57_wu9N4KY" />
+		
+	</head>
+	<body>
+	<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33546623-1']);
+  _gaq.push(['_trackPageview']);
 
-if (get_post_type()== 'estate_property'){
-    $image_id       =   get_post_thumbnail_id();
-    $share_img= wp_get_attachment_image_src( $image_id, 'full'); 
-    ?>
-    <meta property="og:image" content="<?php echo $share_img[0]; ?>"/>
-    <meta property="og:image:secure_url" content="<?php echo $share_img[0]; ?>" />
-<?php 
-} 
-?>
-</head>
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
+</script>
+		<div id="wrapper">
+			<div class="page-header">
+				<div class="logo"><a href="<?php bloginfo('url');?>"><?php bloginfo('description')?></a></div>
+<!--				--><?php //wp_nav_menu( array('container' => false,
+//						 'theme_location' => 'main',
+//						 'menu_id' => 'nav',
+//						 'menu_class' => '',
+//						 'depth' => 2,
+//						 'items_wrap' => '<ul id="%1$s" class="%2$s" title="Click">%3$s</ul>',
+//						 ) );
 
-<body <?php body_class(); ?>>  
-<div class="website-wrapper">
-<div class="container main_wrapper <?php print $wide_class;?> ">
-    
-    
-    <div class="master_header <?php print $wide_class;?>">
-        
-        <?php   
-        if(esc_html ( get_option('wp_estate_show_top_bar_user_menu','') )=="yes"){
-            get_template_part( 'templates/top_bar' ); 
-        } ?>
-       
-        <div class="header_wrapper">
-            <div class="header_wrapper_inside">
-                <div class="logo">
-                    <a href="<?php echo home_url('','login');?>">
-                        <?php  
-                        $logo=get_option('wp_estate_logo_image','');
-                        if ( $logo!='' ){
-                           print '<img src="'.$logo.'" class="img-responsive" alt="logo"/>';	
-                        } else {
-                           print '<img class="img-responsive" src="'. get_template_directory_uri().'/img/logo.png" alt="logo"/>';
-                        }
-                        ?>
-                    </a>
-                </div>   
+;
+                ?>
+			</div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+    <!--                    <a class="navbar-brand" href="#">Brand</a>-->
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
 
-              
-                <?php 
-                if(esc_html ( get_option('wp_estate_show_top_bar_user_login','') )=="yes"){
-                   get_template_part('templates/top_user_menu');  
-                }
-                ?>    
-                <nav id="access" role="navigation">
-                    <?php  wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-                </nav><!-- #access -->
+                                <?php wp_nav_menu( array(
+                                'theme_location' => 'main',
+                                'menu' => 'main',
+                                'depth' => 2,
+                                'container' => false,
+                                'menu_class' => 'nav navbar-nav',
+                                //Process nav menu using our custom nav walker
+                                'walker' => new wp_bootstrap_navwalker())
+                                )?>
+
+                    </div>
                 </div>
-        </div>
-
-     </div> 
-    
-    <?php get_template_part( 'header_media' ); ?>   
-    <div class="container content_wrapper">
+            </nav>

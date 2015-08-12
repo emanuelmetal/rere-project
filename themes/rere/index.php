@@ -131,12 +131,12 @@ much more. <br/><br/>Enjoy!
 		<div class="section form-holder">
 			<h2><a href="/manifesto">MANHATTAN MANIFESTO</a></h2>
 			<h2><a href="/navigating-highlights">NAVIGATING HIGHLIGHTS</a></h2>
-			<br/><h2><a href="http://re-re.info/search">Property Locator</a></h2>
-			<form action="" method="post" onsubmit="processLocator(); return false;">
-			<div><label id="laddress">Address</label> <input id="address" type="text" name="address" size="40" maxlength="255" onBlur="normalizeAddress()"/><br/>
-			</div>
-			<div> <input type="submit" value="Search"></div><br/>
-			</form>
+<!--			<br/><h2><a href="http://re-re.info/search">Property Locator jajaja</a></h2>-->
+<!--			<form action="" method="post" onsubmit="processLocator(); return false;">-->
+<!--			<div><label id="laddress">Address</label> <input id="address" type="text" name="address" size="40" maxlength="255" onBlur="normalizeAddress()"/><br/>-->
+<!--			</div>-->
+<!--			<div> <input type="submit" value="Search"></div><br/>-->
+<!--			</form>-->
 			<hr/><br/>
 			<?php get_search_form(); ?>
 		</div>

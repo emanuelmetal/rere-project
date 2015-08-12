@@ -1,69 +1,51 @@
-<?php
-// Wp Estate Pack
-get_header();
-$options=wpestate_page_details($post->ID); 
-?>
-
-
-
-<div class="row">
-    <?php get_template_part('templates/breadcrumbs'); ?>
-    <div class="<?php print $options['content_class'];?> ">
-        
-         <?php get_template_part('templates/ajax_container'); ?>
-        
-       
-           <h1 class="entry-title"><?php _e('Page not found','wpestate');?></h1>
-         
-            <div class="single-content content404 col-md-12">    
-                <p>
-                <?php _e( 'We\'re sorry. Your page could not be found, But you can check our latest listings & articles', 'wpestate' ); ?>
-                </p>
-
-                <div class="list404">  
-                <h3><?php _e('Latest Listings','wpestate');?></h3>
-                <?php
-                 
-                $args = array(
-                     'post_type'        => 'estate_property',
-                     'post_status'      => 'publish',
-                     'paged'            => 0,
-                     'posts_per_page'   => 10, 
-                 );
-
-                 $recent_posts = new WP_Query($args);
-                   print '<ul>';
-                   while ($recent_posts->have_posts()): $recent_posts->the_post();
-                        print '<li><a href="'.get_permalink().'">'.get_the_title().'</a></li>';
-                   endwhile;
-                   print '</ul>';
-                ?>
-                </div>
-
-                <div class="list404">  
-                <h3><?php _e('Latest Articles','wpestate');?></h3>
-                <?php
-                  $args = array(
-                     'post_type'        => 'post',
-                     'post_status'      => 'publish',
-                     'paged'            => 0,
-                     'posts_per_page'   => 10, 
-                 );
-
-                 $recent_posts = new WP_Query($args);
-                   print '<ul>';
-                   while ($recent_posts->have_posts()): $recent_posts->the_post();
-                        print '<li><a href="'.get_permalink().'">'.get_the_title().'</a></li>';
-                   endwhile;
-                   print '</ul>';
-                ?>
-                </div>
-        
-            </div><!-- single content-->
-     
-    </div>
-  
-    
-<?php  include(locate_template('sidebar.php')); ?>
-</div>   
+<?php get_header(); ?>
+<div id="main">
+	<div id="content">
+		<h2>Not Found</h2>
+		<p>Sorry, but you are looking for something that isn't here.</p>
+	</div>
+	<div id="sidebar">
+		<div class="section form-holder">
+			<h2><a href="http://re-re.info/blog/manifesto">MANHATTAN MANIFESTO</a></h2>
+			<?php get_search_form(); ?>
+		</div>
+		<?php query_posts(array(
+				'cat'=>upcomingUpdatesCategoryID,
+				'showposts'=>3,
+					));?>
+		<?php if(have_posts()):?>
+		<div class="section list-holder">
+			<h2>Upcoming UPDATES</h2>
+			<ul class="list">
+				<?php while(have_posts()): the_post();?>
+				<li><a href="<?php the_permalink();?>"><?php the_title();?></a></li>
+				<?php endwhile;?>
+			</ul>
+		</div>
+		<?php endif;?>
+		<?php wp_reset_query();?>
+		<?php query_posts(array(
+				'cat'=>galleryCategoryID,
+				'showposts'=>3,
+					));?>
+		<?php if(have_posts()):?>
+		<?php $posts_count=0?>
+		<?php while(have_posts()): the_post();?>
+		<?php $posts_count++?>
+		<div class="section">
+			<?php if($posts_count==1):?>
+			<h2>SHORTCUTS TO VITAL INFORMATION</h2>
+			<?php endif;?>
+			<h3><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
+			<div class="post">
+				<?php if (has_post_thumbnail()){?><a href="<?php the_permalink();?>"><?php the_post_thumbnail('post-thumbnails');?></a><?php }?>
+				<?php $more=0; the_content('');?>
+				<a href="<?php the_permalink();?>">See More »</a>
+			</div>
+		</div>
+		<?php endwhile; endif;?>
+		<?php wp_reset_query();?>
+		<?php dynamic_sidebar('socials'); ?>
+	</div>
+</div>
 <?php get_footer(); ?>
