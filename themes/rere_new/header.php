@@ -6,7 +6,10 @@
 		<meta name="author" content="Emanuel Pereyra (primary author) emanuel.pereyra77@gmail.com">
 		<link media="all" rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/asll.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/sstyle.css"  />
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/js/bootstrap/css/bootstrap.css"  />
+        <link href="<?php bloginfo('template_url'); ?>/bower_components/pgwslideshow/pgwslideshow.css" rel="stylesheet">
+        <link href="<?php bloginfo('template_url'); ?>/bower_components/pgwslideshow/pgwslideshow_light.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/assets/css/rere.css"  />
 		<?php
 			wp_deregister_script('jquery');
 			wp_register_script('jquery', get_bloginfo('template_url').'/js/jquery-1.6.4.min.js');
@@ -70,45 +73,42 @@ jQuery("#queryresults").load("http://re-re.info/runquery", {query: sqlQuery});
   })();
 
 </script>
-		<div id="wrapper">
-			<div class="page-header">
-				<div class="logo"><a href="<?php bloginfo('url');?>"><?php bloginfo('description')?></a></div>
-<!--				--><?php //wp_nav_menu( array('container' => false,
-//						 'theme_location' => 'main',
-//						 'menu_id' => 'nav',
-//						 'menu_class' => '',
-//						 'depth' => 2,
-//						 'items_wrap' => '<ul id="%1$s" class="%2$s" title="Click">%3$s</ul>',
-//						 ) );
-
-;
-                ?>
-			</div>
+        <header>
+            <span class="header"></span><a href="/"><img class="" src="<?php bloginfo('template_url'); ?>/assets/img/rere_logo.png" alt="Logo"></a>
+            <a href="/"><img src="<?php bloginfo('template_url'); ?>/assets/img/rere_banner.png" alt="Logo"></a>
+        </header>
+		<div class="container">
             <nav class="navbar navbar-default" role="navigation">
-                <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-    <!--                    <a class="navbar-brand" href="#">Brand</a>-->
-                    </div>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+<!--                    <a class="navbar-brand" href="#">Brand</a>-->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
 
-                                <?php wp_nav_menu( array(
-                                'theme_location' => 'main',
-                                'menu' => 'main',
-                                'depth' => 2,
-                                'container' => false,
-                                'menu_class' => 'nav navbar-nav',
-                                //Process nav menu using our custom nav walker
-                                'walker' => new wp_bootstrap_navwalker())
-                                )?>
+                            <?php wp_nav_menu( array(
+                            'theme_location' => 'main',
+                            'menu' => 'main',
+                            'depth' => 2,
+                            'container' => false,
+                            'menu_class' => 'nav navbar-nav',
+                            //Process nav menu using our custom nav walker
+                            'walker' => new wp_bootstrap_navwalker())
+                            )?>
+                    <form class="navbar-form navbar-right" role="search">
+                        <!--<input type="text" class="form-control" placeholder="Search">-->
+                        <!--<button type="submit" class="btn btn-default">Submit</button>-->
+                        <div class="input-group margin-bottom-sm">
 
-                    </div>
+                            <input class="form-control" type="text" placeholder="Search...">
+                            <span class="input-group-addon btn-primary"><i class="fa fa-search fa-fw"></i></span>
+                        </div>
+                    </form>
                 </div>
             </nav>

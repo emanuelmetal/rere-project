@@ -16,6 +16,7 @@ $current_category = single_cat_title("", false);
 $description = category_description();
 ?>
 	<div id="content">
+        <h1>INDEX.PHP</h1>
 		<?php 
 			if($current_category == "") {
 				query_posts(array(
