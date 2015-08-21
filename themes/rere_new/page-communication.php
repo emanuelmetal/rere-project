@@ -6,7 +6,7 @@ Template Name: communication
 	global $page_title;
 	$page_title = get_the_title();
 ?>
-<div id="main">
+<div id="rere-content">
 	<div id="content">
 		<?php wp_register('','',1); ?>
 		<?php if(have_posts()):?>
