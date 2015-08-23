@@ -101,30 +101,30 @@ $description = category_description();
 		?>
 			
 		<?php if(have_posts()):?>
-		<div class="row-holder">
 			<?php $posts_count=0;?>
-			<div class="row">
+            <div class="row">
 			<?php while(have_posts()): the_post();?>
 			<?php $posts_count++;?>
-				<div class="box" style="left: <?php echo ((($posts_count-1)%3) * 223)?>px" >
-					<div class="heading"><h2><?php the_title(); /* echo $posts_count; */?></h2></div>
-					<div class="text">
-						<div class="default-text">
-							<?php the_excerpt();?>
-						</div>
-						<div class="block">
-							<?php the_content('');?>	
-						</div>
-					</div>
-					<div class="more"><a href="#"><span>READ MORE</span></a></div>
-					<a class="close" href="#">close</a>
+				<div class="col-sd-12 col-lg-4">
+                    <div class="panel panel-primary rere-panel">
+                        <div class="panel-heading">
+                            <div class="panel-title"><?php the_title(); /* echo $posts_count; */?></div>
+                        </div>
+                        <div class="panel-body">
+                            <?php the_excerpt();
+                            the_content('');
+                            ?>
+                        </div>
+                    </div>
+<!--					<div class="more"><a href="#"><span>READ MORE</span></a></div>-->
+<!--					<a class="close" href="#">close</a>-->
 				</div>
+<!--                </div>-->
 			<?php if(($posts_count%3==0)&&($posts_count<$wp_query->post_count)):?>
 			</div><div class="row">
 			<?php endif;?>
 			<?php endwhile;?>
 			</div>
-		</div>
 		<?php endif;?>
 		<?php wp_reset_query();?>
 	</div>

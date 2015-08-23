@@ -3,7 +3,7 @@
 	$page_title = get_the_title();
 ?>
 <!-- page.php -->
-<div id="rere-content">
+<div class="rere-content">
 	<div id="content">
 		<h1>PAGE.PHP</h1>
 		<?php if(have_posts()):?>
