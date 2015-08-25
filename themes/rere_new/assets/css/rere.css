@@ -6778,9 +6778,6 @@ button.close {
 /* gray background of text fields */
 /* gray frame of text fields */
 /* gray color of the text in the fields */
-p {
-  margin: 20px 0;
-}
 .form-control {
   box-shadow: none;
 }
@@ -6790,6 +6787,9 @@ p {
 .logo {
   width: 83px;
   height: 83px;
+}
+.fa-1-5 {
+  font-size: 1.5em;
 }
 header {
   background-color: #6d98be;
@@ -6824,6 +6824,9 @@ header .header a {
     text-align: center;
   }
 }
+ul.nav li.dropdown:hover ul.dropdown-menu {
+  display: block;
+}
 .pgwSlideshow {
   background: transparent;
 }
@@ -6835,16 +6838,41 @@ header .header a {
 .rere-content p {
   text-align: justify;
 }
+.rere-content p img,
+.rere-content a img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.statue {
+  background-image: url('../img/Statue.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  text-align: center;
+}
+.row.fixed {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.rere-panel {
+  height: 95%;
+}
 .rere-button {
   background-color: transparent !important;
   border-radius: 0 !important;
-  border-color: #6d98be !important;
+  border-color: transparent !important;
   color: #003399;
   border-width: 2px ;
-  width: 200px;
+  width: 180px;
 }
 .rere-button:hover {
   color: #0055ff !important;
+}
+#sidebar {
+  display: none;
 }
 .footer-basic-centered {
   background-color: #6d98be;

@@ -1,6 +1,6 @@
 <!-- single.php -->
 <?php get_header(); ?>
-<div id="main">
+<div id="rere-content">
 	<div id="content">
 		<?php if(have_posts()):?>
 			<?php while(have_posts()): the_post();?>

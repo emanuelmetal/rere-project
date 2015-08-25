@@ -102,13 +102,13 @@ $description = category_description();
 			
 		<?php if(have_posts()):?>
 			<?php $posts_count=0;?>
-            <div class="row">
+            <div class="row fixed">
 			<?php while(have_posts()): the_post();?>
 			<?php $posts_count++;?>
 				<div class="col-sd-12 col-lg-4">
                     <div class="panel panel-primary rere-panel">
                         <div class="panel-heading">
-                            <div class="panel-title"><?php the_title(); /* echo $posts_count; */?></div>
+                            <div class="panel-title"><i class="fa fa-tag"></i></i> <?php the_title(); /* echo $posts_count; */?></div>
                         </div>
                         <div class="panel-body">
                             <?php the_excerpt();
