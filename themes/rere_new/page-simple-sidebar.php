@@ -3,7 +3,7 @@ Template Name: simple sidebar
 */ ?>
 <?php get_header(); ?>
 <!-- ss3.php -->
-<div id="main">
+<div class="rere-content">
 <?php
 global $page_title;
 $current_category = single_cat_title("", false); 

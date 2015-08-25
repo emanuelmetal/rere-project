@@ -4,16 +4,18 @@
 		<title>eMAn<?php wp_title(' | ', true, 'right'); ?><?php bloginfo('name'); ?></title>
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<meta name="author" content="Emanuel Pereyra (primary author) emanuel.pereyra77@gmail.com">
-		<link media="all" rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/asll.css" />
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/sstyle.css"  />
+<!--		<link media="all" rel="stylesheet" type="text/css" href="--><?php //bloginfo('template_url'); ?><!--/asll.css" />-->
+<!--		<link rel="stylesheet" type="text/css" media="all" href="--><?php //bloginfo('template_url'); ?><!--/sstyle.css"  />-->
         <link href="<?php bloginfo('template_url'); ?>/bower_components/pgwslideshow/pgwslideshow.css" rel="stylesheet">
         <link href="<?php bloginfo('template_url'); ?>/bower_components/pgwslideshow/pgwslideshow_light.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/assets/css/rere.css"  />
 		<?php
 			wp_deregister_script('jquery');
-			wp_register_script('jquery', get_bloginfo('template_url').'/js/jquery-1.6.4.min.js');
-			wp_enqueue_script('jquery'); ?>
+			wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js');
+			wp_register_script('bootstrap', get_bloginfo('template_url').'/bower_components/bootstrap/dist/js/bootstrap.min.js');
+			wp_register_script('pgwSlideshow', get_bloginfo('template_url').'/bower_components/pgwslideshow/pgwslideshow.min.js');
+			 ?>
 		<?php wp_head(); ?>
 		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.main.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.hoverIntent.minified.js"></script>

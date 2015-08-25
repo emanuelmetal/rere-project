@@ -6,7 +6,7 @@ Template Name: Single Listing
 	global $page_title;
 	$page_title = get_the_title();
 ?>
-<div id="main">
+<div id="rere-content">
 	<div id="content-wide">
 
 <?php

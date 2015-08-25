@@ -39,9 +39,13 @@
                </a>
            </div>
        </footer>
-<!--                --><?php //wp_footer(); ?>
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <?php wp_enqueue_script('jquery');
+              wp_enqueue_script('bootstrap');
+              wp_enqueue_script('pgwSlideshow');
+        ?>
+<!--       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
 
-       <script src="<?php bloginfo('template_url'); ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--       <script src="--><?php //bloginfo('template_url'); ?><!--/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+<!--        <script src="--><?php //bloginfo('template_url'); ?><!--/bower_components/pgwslideshow/pgwslideshow.min.js"></script>-->
 	</body>
 </html>

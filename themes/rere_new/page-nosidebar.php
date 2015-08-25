@@ -3,7 +3,7 @@ Template Name: No Sidebar
 */ ?>
 <?php get_header(); ?>
 <!-- ss3.php -->
-<div id="rere-content">
+<div class="rere-content">
 <?php
 global $page_title;
 $current_category = single_cat_title("", false); 
