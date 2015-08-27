@@ -2,6 +2,7 @@
 <html <?php language_attributes(); ?>>
 	<head>
 		<title>eMAn<?php wp_title(' | ', true, 'right'); ?><?php bloginfo('name'); ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<meta name="author" content="Emanuel Pereyra (primary author) emanuel.pereyra77@gmail.com">
 <!--		<link media="all" rel="stylesheet" type="text/css" href="--><?php //bloginfo('template_url'); ?><!--/asll.css" />-->

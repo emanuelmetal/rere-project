@@ -105,7 +105,7 @@ $description = category_description();
             <div class="row fixed">
 			<?php while(have_posts()): the_post();?>
 			<?php $posts_count++;?>
-				<div class="col-sd-12 col-lg-4">
+				<div class="col-xs-12 col-lg-4">
                     <div class="panel panel-primary rere-panel">
                         <div class="panel-heading">
                             <div class="panel-title"><i class="fa fa-tag"></i></i> <?php the_title(); /* echo $posts_count; */?></div>
@@ -121,7 +121,7 @@ $description = category_description();
 				</div>
 <!--                </div>-->
 			<?php if(($posts_count%3==0)&&($posts_count<$wp_query->post_count)):?>
-			</div><div class="row">
+			</div><div class="row fixed">
 			<?php endif;?>
 			<?php endwhile;?>
 			</div>
