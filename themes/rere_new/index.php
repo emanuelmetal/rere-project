@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <!-- index.php -->
 
-<div id="rere-content">
+<div class="rere-content">
 <?php
 global $page_title;
 $current_category = single_cat_title("", false); 
@@ -111,7 +111,7 @@ $description = category_description();
                             <div class="panel-title"><i class="fa fa-tag"></i></i> <?php the_title(); /* echo $posts_count; */?></div>
                         </div>
                         <div class="panel-body">
-                            <?php the_excerpt();
+                            <?php
                             the_content('');
                             ?>
                         </div>

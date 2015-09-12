@@ -50,8 +50,8 @@ $description = category_description();
 		<?php endif;?>
 
 	</div>
-	    <div id="sidebar">
-		<?php dynamic_sidebar('simple-right'); ?>
+    <div id="sidebar">
+<!--		--><?php //dynamic_sidebar('simple-right'); ?>
 	</div>
 	
 </div>
