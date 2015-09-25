@@ -17,7 +17,8 @@ if (is_page()) {
 $current_category = single_cat_title("", false); 
 $description = category_description();
 ?>
-	<div id="content">
+	<div class="row">
+        <div class="col-lg-9 col-xs-12">
 		<h1>PAGE-SIMPLE-SIDE-BAR.PHP</h1>
 			<?php if(have_posts()):?>
 			<?php while(have_posts()): the_post();?>
@@ -42,17 +43,14 @@ $description = category_description();
 			}
 		?>	
 		<?php if(have_posts()):?>
-		<div style="position: relative; z-index: 20;">			
-
-
-		</div>
 
 		<?php endif;?>
+        </div>
+        <div class="col-lg-3 xs-hidden">
+            <?php dynamic_sidebar('simple-right'); ?>
+        </div>
+	</div>
 
-	</div>
-    <div id="sidebar">
-<!--		--><?php //dynamic_sidebar('simple-right'); ?>
-	</div>
 	
 </div>
 <?php get_footer(); ?>
