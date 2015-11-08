@@ -26,7 +26,7 @@ formLocationPart = sqlQuery.length;  // remember where the location info ended (
 
 
 // now make the rental price or sale price fields hidden according to whether they're look at rentals or sales
-if (queryForm.elements["rlistingtype-forsale"].checked)	{
+if (queryForm.elements["rlistingtype-forsale"] && queryForm.elements["rlistingtype-forsale"].checked)	{
 	if (queryForm.elements["price-l"].value != "") {
 		lowPrice = (queryForm.elements["price-l"].value);
 		if (lowPrice == "0") lowPrice = 0;
@@ -53,7 +53,11 @@ if (queryForm.elements["rlistingtype-forsale"].checked)	{
 		highPrice = 10000000000;
 	}
 }
-sqlQuery += " AND asking_price BETWEEN " + lowPrice + " AND " + highPrice;
+if (queryForm.elements["asking_price"] && queryForm.elements["asking_price"].value != ""){
+    sqlQuery += " AND asking_price BETWEEN " + 0 + " AND " + queryForm.elements["asking_price"].value;
+} else {
+    sqlQuery += " AND asking_price BETWEEN " + lowPrice + " AND " + highPrice;
+}
 	
 /* 
 if (!queryForm.elements["rlistingtype-rcondo"].checked) {
@@ -110,6 +114,10 @@ if (queryForm.elements["rlistingtype-forrent"].checked) {
 		}
 		sqlQuery = sqlQuery.substr(0, sqlQuery.length-3) + ")";    // trim off the last OR, and close the parens
 	}
+}
+if (queryForm.elements["rent"] && queryForm.elements["rent"].value != ""){
+    highNumber = queryForm.elements["rent"].value;
+    sqlQuery += " AND (rental_coop_condo >= '" + highNumber + "' OR rental_townhouse_loft >= '" + highNumber + "')";
 }
 
 /* if (queryForm.elements["rlistingtype-o"].checked) {
@@ -443,7 +451,7 @@ sqlQuery += " ORDER BY neighborhood, street_name LIMIT 40"
 // + queryForm.elements["sort1"].value  + ", " + queryForm.elements["sort2"].value  + ", " + queryForm.elements["sort3"].value + " LIMIT 40";
 // action != EXEC or Re-EXEC is used by the maps to create a query in jQuery.jStorage called formLocationPart (see just above) to feed to page-qualquery.php for redlining
 if (action == "EXEC" || action == "RE-EXEC") {  // EXEC is initiated within the Search Form, RE-EXEC is a response to changes on the maps
-	jQuery("#queryresults").load("http://re-re.info/runquery", {query: sqlQuery});
+	jQuery("#queryresults").load("/runquery", {query: sqlQuery});
 } else {
 	parsedQuery = sqlQuery;
 }
