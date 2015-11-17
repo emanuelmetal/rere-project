@@ -3,14 +3,25 @@
 Template Name: runquery
 */ ?>
 <!-- page-runquery.php -->
-<?php 
+<?php
 global $wpdb;
 $query = str_replace("\'", "'", htmlentities($_POST["query"]));
 echo '<div class="debug">';
-echo "Query:  "; echo $query; 
-echo "<br/><br/></div>"; 
-$query = "SELECT * FROM wp_listings_data WHERE 1=1" . $query;
-
+echo "Query:  "; echo $query;
+echo "<br/><br/></div>";
+if ($query == ''){
+    $query = ' LIMIT 20';
+}
+//$query = "SELECT * FROM wp_listings_data WHERE 1=1" . $query;
+$query = 'SELECT *
+  FROM wp_listings_data AS r1 JOIN
+       (SELECT CEIL(RAND() *
+                     (SELECT MAX(maint_cc)
+                        FROM wp_listings_data)) AS maint_cc)
+        AS r2
+ WHERE r1.maint_cc >= r2.maint_cc
+ ORDER BY r1.maint_cc ASC
+ LIMIT 20';
 
 
 // echo "Prepared Query:  "; echo $wpdb->prepare($query); echo "<br/><br/>"; 
@@ -60,7 +71,7 @@ if (count($results))
 			
 			// APARTMENT HOUSE FACTS SECTION
 			print '<table border="1" bordercolor="#000000" width="100%" cellpadding="2" cellspacing="2">';
-			print '	<tr style="background-color:#B16744">';
+			print '	<tr style="background-color:#6d98be">';
 			print '		<td colspan="5"><H2><div style="color:#FFFFFF">Apartment House Facts</div></H2></td>';
 			print '	</tr>';
 			
@@ -71,8 +82,8 @@ if (count($results))
 					{
 						if( strpos( $irow["relative_path_image"],".pdf" ) > 0 ) break;
 						$irow["relative_path_image"] = str_replace("_BY_ZIPCODE", "Dwellings-by-Zip-Codes", $irow["relative_path_image"]);
-						print '<td rowspan="6"><a target="_new" href="http://re-re.info/wp-content/uploads/building-data/' . $irow["relative_path_image"] . '">';
-						print '<img class="Image" height="140"  src="http://re-re.info/wp-content/uploads/building-data/' . $irow["relative_path_image"] . '"/>';
+						print '<td rowspan="6"><a target="_new" href="/wp-content/uploads/building-data/' . $irow["relative_path_image"] . '">';
+						print '<img class="Image" height="140"  src="/wp-content/uploads/building-data/' . $irow["relative_path_image"] . '"/>';
 						print '</a></td>';
 						print '		<td colspan="2" align="left"><b><h4>'.$row["address_number"] .' '. $row["street_name"] .'</b></h4></td>';
 						print '		<td align="right"><b><h4>'.$row["zipcode"].'</b></h4></td>';
@@ -85,8 +96,8 @@ if (count($results))
 				}
 				
 				// NEIGBORHOOD MAP IMAGE
-				print '<td rowspan="6"><a target="_new" href="http://re-re.info/maps-2/' . $row["zipcode"] .'-2/">';
-				print '<img class="Image" height="140"  src="http://re-re.info/wp-content/uploads/2012/maps/' . $row["zipcode"] .'.png"/>';
+				print '<td rowspan="6"><a target="_new" href="/maps-2/' . $row["zipcode"] .'-2/">';
+				print '<img class="Image" height="140"  src="/wp-content/uploads/2012/maps/' . $row["zipcode"] .'.png"/>';
 				print '</a></td>';
 			print '	</tr>';
 			
@@ -137,8 +148,8 @@ if (count($results))
 						
 						if( $number_of_images == 1 )
 						{
-							print '<td rowspan="5"><a target="_new" href="http://re-re.info/wp-content/uploads/building-data/' . $irow["relative_path_image"] . '">';
-							print '<img class="Image" height="140"  src="http://re-re.info/wp-content/uploads/building-data/' . $irow["relative_path_image"] . '"/>';
+							print '<td rowspan="5"><a target="_new" href="/wp-content/uploads/building-data/' . $irow["relative_path_image"] . '">';
+							print '<img class="Image" height="140"  src="/wp-content/uploads/building-data/' . $irow["relative_path_image"] . '"/>';
 							print '</a></td>';
 							break;
 						}
@@ -160,19 +171,19 @@ if (count($results))
 						if( strpos($fprow["relative_pathFloorPlans"],'nyre.cul.columbia.edu') !== false )
 						{
 							print '<td rowspan="5"><a target="_new" href="'.$fprow["relative_pathFloorPlans"].'">';
-                            print '<img class="Image" height="140" src="http://re-re.info/wp-content/themes/rere/images/floor-plan.png"/></a></td>';
+                            print '<img class="Image" height="140" src="/wp-content/themes/rere/images/floor-plan.png"/></a></td>';
 						}
 						else
 						{
-							print '<td rowspan="5"><a target="_new" href="http://re-re.info/wp-content/uploads/building-data/' .$fprow["relative_pathFloorPlans"] . '">';
-							print '<img class="Image" height="140" src="http://re-re.info/wp-content/uploads/building-data/' .$fprow["relative_pathFloorPlans"] .'"/></a></td>';
+							print '<td rowspan="5"><a target="_new" href="/wp-content/uploads/building-data/' .$fprow["relative_pathFloorPlans"] . '">';
+							print '<img class="Image" height="140" src="/wp-content/uploads/building-data/' .$fprow["relative_pathFloorPlans"] .'"/></a></td>';
 						}
 						if(++$number_of_images > 2) break;
 					}
 				}
 				else
 				{
-					print '		<td rowspan="5"><img class="Image" height="140" src="http://re-re.info/wp-content/themes/rere/images/NoFloorPlan.jpg"></td>';
+					print '		<td rowspan="5"><img class="Image" height="140" src="/wp-content/themes/rere/images/NoFloorPlan.jpg"></td>';
 				}
 			print '	</tr>';
 			
@@ -204,7 +215,7 @@ if (count($results))
 			print '		<td>&nbsp;</td>';
 			print '	</tr>';
 			
-			print '	<tr style="background-color:#B16744">';
+			print '	<tr style="background-color:#6d98be">';
 			print '		<td colspan="5"><H3><div style="color:#FFFFFF; vertical-align:middle;">Building Apartments</div></H3></td>';
 			print '	</tr>';
 			
