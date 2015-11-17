@@ -104,7 +104,7 @@ $description = category_description();
 			<?php $posts_count=0;?>
             <div class="row fixed">
 			<?php while(have_posts()): the_post();?>
-			<?php $posts_count++;?>
+			<?php $posts_count++; //var_dump($post); die;?>
 				<div class="col-xs-12 col-lg-4">
                     <div class="panel panel-primary rere-panel">
                         <div class="panel-heading">
