@@ -12,16 +12,16 @@ echo "<br/><br/></div>";
 if ($query == ''){
     $query = ' LIMIT 20';
 }
-//$query = "SELECT * FROM wp_listings_data WHERE 1=1" . $query;
-$query = 'SELECT *
-  FROM wp_listings_data AS r1 JOIN
-       (SELECT CEIL(RAND() *
-                     (SELECT MAX(maint_cc)
-                        FROM wp_listings_data)) AS maint_cc)
-        AS r2
- WHERE r1.maint_cc >= r2.maint_cc
- ORDER BY r1.maint_cc ASC
- LIMIT 20';
+$query = "SELECT * FROM wp_listings_data WHERE 1=1 " . $query;
+//$query = 'SELECT *
+//  FROM wp_listings_data AS r1 JOIN
+//       (SELECT CEIL(RAND() *
+//                     (SELECT MAX(maint_cc)
+//                        FROM wp_listings_data)) AS maint_cc)
+//        AS r2
+// WHERE r1.maint_cc >= r2.maint_cc
+// ORDER BY r1.maint_cc ASC
+// LIMIT 20';
 
 
 // echo "Prepared Query:  "; echo $wpdb->prepare($query); echo "<br/><br/>"; 
@@ -96,7 +96,7 @@ if (count($results))
 				}
 				
 				// NEIGBORHOOD MAP IMAGE
-				print '<td rowspan="6"><a target="_new" href="/maps-2/' . $row["zipcode"] .'-2/">';
+				print '<td rowspan="6"><a target="_new" href="/wp-content/uploads/2012/maps/' . $row["zipcode"] .'.png">';
 				print '<img class="Image" height="140"  src="/wp-content/uploads/2012/maps/' . $row["zipcode"] .'.png"/>';
 				print '</a></td>';
 			print '	</tr>';

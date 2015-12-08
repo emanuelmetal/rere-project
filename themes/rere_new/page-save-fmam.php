@@ -8,8 +8,11 @@ if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
 }
 
 global $wpdb;
-$query = "INSERT INTO asd wp_fmam_posting " . str_replace("\'", "'", htmlentities($_POST["query"]));
+
+$content = addslashes($_POST["content"]);
+$form = addslashes($_POST["form"]);
+$query = "INSERT INTO wp_fmam_json (content, form) VALUES ('{$content}', '{$form}')";
 
 $results = $wpdb->query($query);
 
-echo $results;
+echo "1";

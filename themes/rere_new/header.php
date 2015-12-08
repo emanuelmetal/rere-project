@@ -22,7 +22,7 @@
 		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.hoverIntent.minified.js"></script>
 <!--		<script type="text/javascript" src="http://valid.tjp.hu/zoom/tjpzoom.js"></script>-->
 		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/process_mkt_opps.js"></script>
-				<script type="text/javascript" src="<?php bloginfo('template_url'); ?>js/processSearch.js"></script>
+        <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/processSearch.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/json2.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jstorage.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.imagemapster.min.js"></script>

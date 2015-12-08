@@ -148,7 +148,7 @@ sqlQuery+=" )";
 //jQuery("#queryresults").text(sqlQuery);
 //jQuery("#queryresults").load("http://rere.local/savefmam", {query: sqlQuery});
     jQuery.ajax({
-        url: 'http://rere.local/savefmam',
+        url: '/savefmam',
         type: 'POST',
         data: {query:sqlQuery},
         success: function(response){

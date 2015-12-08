@@ -15,8 +15,8 @@
        <footer class="footer-basic-centered">
            <p class="footer-links">
                <a href="#">PERSONNAL PLANNER</a>&nbsp;&middot;
-               <a href="#">FIND ME A MATCH</a>&nbsp;&middot;
-               <a href="#">POST A PROPERTY</a>&nbsp;&middot;
+               <a href="/findme-a-match/">FIND ME A MATCH</a>&nbsp;&middot;
+               <a href="/manhattan-coop-condo-advertisements/">POST A PROPERTY</a>&nbsp;&middot;
                <a href="#">ABOUT</a>&nbsp;&middot;
                <a href="#">QUESTIONS</a>&nbsp;&middot;
                <a href="#">CONTACT</a>

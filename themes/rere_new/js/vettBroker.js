@@ -5,7 +5,7 @@ var sqlQuery = "";
 
 // sqlQuery+=" )";
 //jQuery("#queryresults").text(sqlQuery);
-jQuery("#queryresults").load("http://re-re.info/fmampostboard", {query: sqlQuery});
+jQuery("#queryresults").load("/fmampostboard", {query: sqlQuery});
 //////
 return(0);
 }
