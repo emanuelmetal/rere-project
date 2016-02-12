@@ -22,6 +22,6 @@ if ($form == 'buyers') {
 else {
     $subject = 'Find me a Match request from a seller';
 }
-wp_mail('ljgrere@gmail.com', $subject, $message);
+wp_mail('emanuel.pereyra77@gmail.com', $subject, $message);
 
 echo "1";
