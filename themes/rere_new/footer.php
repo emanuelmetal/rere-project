@@ -22,20 +22,20 @@
                <a href="#">CONTACT</a>
            </p>
            <div class="social">
-               <a href="#">
+               <a href="/">
                    <i class="fa fa-home"></i>
                </a>
-               <a href="#">
+               <a href="#" title="Regarding Real Estate @ Facebook">
                    <i class="fa fa-facebook"></i>
                </a>
-               <a href="#">
+               <a href="https://twitter.com/rereinfo" target="_blank" title="Regarding Real Estate @ Twitter">
                    <i class="fa fa-twitter"></i>
                </a>
-               <a href="#">
+               <a href="https://www.linkedin.com/company/3149970?trk=tyah" target="_blank" title="Regarding Real Estate @ LinkedIn">
                    <i class="fa fa-linkedin"></i>
                </a>
-               <a href="#">
-                   <i class="fa fa-instagram"></i>
+               <a href="https://www.pinterest.com/rereinfo/" target="_blank" title="Regarding Real Estate @ Pinteres">
+                   <i class="fa fa-pinterest"></i>
                </a>
            </div>
        </footer>

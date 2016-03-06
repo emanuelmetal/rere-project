@@ -6,7 +6,7 @@
 			<?php while(have_posts()): the_post();?>
                 <div class="row">
                     <div class="col-lg-12 col-xs-12">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-primary display">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     <a href="<?php the_permalink()?>"><?php the_title();?> <span aria-hidden="true" class="glyphicon glyphicon-open"></span></a>
