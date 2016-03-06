@@ -9,6 +9,8 @@
 <!--		<link rel="stylesheet" type="text/css" media="all" href="--><?php //bloginfo('template_url'); ?><!--/sstyle.css"  />-->
         <link href="<?php bloginfo('template_url'); ?>/bower_components/pgwslideshow/pgwslideshow.css" rel="stylesheet">
         <link href="<?php bloginfo('template_url'); ?>/bower_components/pgwslideshow/pgwslideshow_light.css" rel="stylesheet">
+		<link href="<?php bloginfo('template_url'); ?>/bower_components/dropzone/dist/dropzone.css" type="text/css" rel="stylesheet">
+		<link href="<?php bloginfo('template_url'); ?>/assets/css/parsley.css" type="text/css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/assets/css/rere.css"  />
 		<?php

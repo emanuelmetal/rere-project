@@ -42,6 +42,8 @@
         <?php wp_enqueue_script('jquery');
               wp_enqueue_script('bootstrap');
               wp_enqueue_script('pgwSlideshow');
+              wp_enqueue_script('jquery-serialize-object');
+              wp_enqueue_script('parsley');
         ?>
 <!--       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
 
