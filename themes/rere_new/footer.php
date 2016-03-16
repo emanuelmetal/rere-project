@@ -18,7 +18,7 @@
                <a href="/findme-a-match/">FIND ME A MATCH</a>&nbsp;&middot;
                <a href="/manhattan-coop-condo-advertisements/">POST A PROPERTY</a>&nbsp;&middot;
                <a href="#">ABOUT</a>&nbsp;&middot;
-               <a href="#">QUESTIONS</a>&nbsp;&middot;
+               <a href="/mastering-manhattan/manhattan-real-estate-search-hints-tips-conventional-wisoms/">QUESTIONS</a>&nbsp;&middot;
                <a href="#">CONTACT</a>
            </p>
            <div class="social">
@@ -45,6 +45,23 @@
               wp_enqueue_script('jquery-serialize-object');
               wp_enqueue_script('parsley');
         ?>
+        <script>
+            var searchForm = jQuery("#search-form");
+            var searchButton = jQuery("#search-button");
+            var searchInput = jQuery("#search-input");
+
+            searchButton.click(function () {
+                if (searchInput.val() !== '') {
+                    searchForm.submit();
+                }
+            });
+
+            searchForm.on('submit', function (e) {
+                if (searchInput.val().trim() === '') {
+                    e.preventDefault();
+                }
+            });
+        </script>
 <!--       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
 
 <!--       <script src="--><?php //bloginfo('template_url'); ?><!--/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->

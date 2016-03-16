@@ -106,13 +106,13 @@ jQuery("#queryresults").load("http://re-re.info/runquery", {query: sqlQuery});
                             //Process nav menu using our custom nav walker
                             'walker' => new wp_bootstrap_navwalker())
                             )?>
-                    <form class="navbar-form navbar-right" role="search" method="GET" action="/">
+                    <form class="navbar-form navbar-right" role="search" method="GET" action="/" id="search-form">
                         <!--<input type="text" class="form-control" placeholder="Search">-->
                         <!--<button type="submit" class="btn btn-default">Submit</button>-->
                         <div class="input-group margin-bottom-sm">
 
-                            <input class="form-control" type="text" placeholder="Search..." name="s">
-                            <span class="input-group-addon btn-primary"><i class="fa fa-search fa-fw"></i></span>
+                            <input class="form-control" type="text" id="search-input" placeholder="Search..." name="s">
+                            <span class="input-group-addon btn-primary" id="search-button"><i class="fa fa-search fa-fw"></i></span>
                         </div>
                     </form>
                 </div>
