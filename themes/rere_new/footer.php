@@ -17,17 +17,17 @@
                <a href="/personal-planners/">PERSONNAL PLANNERS</a>&nbsp;&middot;
                <a href="/findme-a-match/">FIND ME A MATCH</a>&nbsp;&middot;
                <a href="/manhattan-coop-condo-advertisements/">POST A PROPERTY</a>&nbsp;&middot;
-               <a href="#">ABOUT</a>&nbsp;&middot;
-               <a href="/mastering-manhattan/manhattan-real-estate-search-hints-tips-conventional-wisoms/">QUESTIONS</a>&nbsp;&middot;
-               <a href="#">CONTACT</a>
+               <a href="/letter-from-the-editor/">ABOUT</a>&nbsp;&middot;
+               <a href="/mastering-manhattan/manhattan-real-estate-search-hints-tips-conventional-wisoms/">QUESTIONS</a>
+<!--               <a href="#">CONTACT</a>-->
            </p>
            <div class="social">
                <a href="/">
                    <i class="fa fa-home"></i>
                </a>
-               <a href="#" title="Regarding Real Estate @ Facebook">
-                   <i class="fa fa-facebook"></i>
-               </a>
+<!--               <a href="#" title="Regarding Real Estate @ Facebook">-->
+<!--                   <i class="fa fa-facebook"></i>-->
+<!--               </a>-->
                <a href="https://twitter.com/rereinfo" target="_blank" title="Regarding Real Estate @ Twitter">
                    <i class="fa fa-twitter"></i>
                </a>
