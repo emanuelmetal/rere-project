@@ -1,3 +1,6 @@
+<?php /*
+Template Name: fmampostboard
+*/ ?>
 <?php get_header(); ?>
 <!-- index.php -->
 
@@ -12,7 +15,7 @@ if (is_page()) {
 	$page_title = $current_category;
 }
 
-$current_category = single_cat_title("", false); 
+$current_category = 'BLOG';
 $description = category_description();
 ?>
 	<div id="content">

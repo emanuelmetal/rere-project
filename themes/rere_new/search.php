@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div class="rere-content">
-    <h1>search</h1>
+    <h1>Search results</h1>
 	<div id="content">
 		<?php if(have_posts()):?>
 			<?php while(have_posts()): the_post();?>

@@ -18,7 +18,8 @@
                <a href="/findme-a-match/">FIND ME A MATCH</a>&nbsp;&middot;
                <a href="/manhattan-coop-condo-advertisements/">POST A PROPERTY</a>&nbsp;&middot;
                <a href="/letter-from-the-editor/">ABOUT</a>&nbsp;&middot;
-               <a href="/mastering-manhattan/manhattan-real-estate-search-hints-tips-conventional-wisoms/">QUESTIONS</a>
+               <a href="/mastering-manhattan/manhattan-real-estate-search-hints-tips-conventional-wisoms/">QUESTIONS</a>&nbsp;&middot;
+               <a href="/sitemap/">SITEMAP</a>
 <!--               <a href="#">CONTACT</a>-->
            </p>
            <div class="social">

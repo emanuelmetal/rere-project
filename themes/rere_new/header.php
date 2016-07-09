@@ -17,7 +17,7 @@
 			wp_deregister_script('jquery');
 			wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js');
 			wp_register_script('bootstrap', get_bloginfo('template_url').'/bower_components/bootstrap/dist/js/bootstrap.min.js');
-			wp_register_script('pgwSlideshow', get_bloginfo('template_url').'/bower_components/pgwslideshow/pgwslideshow.min.js');
+			wp_register_script('pgwSlideshow', get_bloginfo('template_url').'/js/pgwslideshow.js');
 			 ?>
 		<?php wp_head(); ?>
 		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.main.js"></script>
