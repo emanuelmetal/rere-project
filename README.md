@@ -1,2 +1,4 @@
 # rere-project
-Regarding Real Estate project developments
+Regarding Real Estate project development
+
+Wordpress theme
